@@ -1,4 +1,5 @@
 const express = require("express");
+const cors=require("cors")
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -6,6 +7,7 @@ let products = [];
 let nextId = 1;
 
 app.use(express.json());
+app.use(cors())
 
 function validateProduct(body) {
   if (!body || typeof body !== "object" || Array.isArray(body)) {
